@@ -1,46 +1,69 @@
 const path = require('path')
-const HTMLWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const PugPlugin = require('pug-plugin')
 
 module.exports = {
-    context: path.resolve(__dirname, 'src'),
-    entry: './index.js',
-    output: {
-        filename: '[name].[contenthash].bundle.js',
-        path: path.resolve(__dirname, 'dist'),
-    },
-    devServer: {
-        port: 9000
-    },
-    resolve: {
-        extensions: ['.js', '.ts', '.pug', '.css']
-    },
-    plugins: [
-        new HTMLWebpackPlugin({
-            template: path.join(__dirname, 'src', 'index.pug'),
-            filename: 'index.html',
-        }),
-        new CleanWebpackPlugin(),
-    ],
-    module: {
+  context: path.resolve(__dirname, 'src'),
 
-        rules: [
-            {
-                test: /\.js$/,
-                use: 'babel-loader',
-                exclude: /node_modules/,
-            },
-            {
-                test: /\.(scss|css)$/,
-                use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
-            },
-            {
-                test: /\.pug$/,
-                loader: PugPlugin.loader
-            },
+  output: {
+    path: path.join(__dirname, 'dist'),
+  },
 
-        ]
-    }
+  entry: {
+    index: './pages/index/index.pug',
+    colors_and_types: './pages/colors_and_types/colors_and_types.pug',
+    form_elements: './pages/form_elements/form_elements.pug',
+  },
+
+  devServer: {
+    static: {
+      directory: path.join(__dirname, 'dist'),
+    },
+    compress: true,
+    watchFiles: {
+      paths: ['src/**/*.*'],
+      options: {
+        usePolling: true,
+      },
+    },
+  },
+
+  resolve: {
+    extensions: ['.js', '.ts', '.pug', '.css']
+  },
+
+  plugins: [
+    new CleanWebpackPlugin(),
+
+    new PugPlugin({
+      pretty: true,
+      js: {
+        filename: 'assets/js/[name].[contenthash:8].js',
+      },
+      css: {
+        filename: '[name].[contenthash:8].css',
+      },
+    }),
+  ],
+
+  module: {
+
+    rules: [
+      {
+        test: /\.js$/,
+        use: 'babel-loader',
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.(css|sass|scss)$/,
+        use: ['css-loader', 'sass-loader'],
+      },
+      {
+        test: /\.pug$/,
+        loader: PugPlugin.loader
+      },
+
+    ]
+  }
 
 }
