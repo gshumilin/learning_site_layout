@@ -11,8 +11,8 @@ module.exports = {
 
   entry: {
     index: './pages/index/index.pug',
-    colors_and_types: './pages/colors_and_types/colors_and_types.pug',
-    form_elements: './pages/form_elements/form_elements.pug',
+    colors_and_types: './pages/colors-and-types/colors-and-types.pug',
+    form_elements: './pages/form-elements/form-elements.pug',
   },
 
   devServer: {
