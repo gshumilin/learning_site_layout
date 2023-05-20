@@ -59,6 +59,13 @@ module.exports = {
         loader: PugPlugin.loader
       },
       {
+        test: /\.(png|jpg|jpeg|ico)/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/img/[name].[hash:8][ext]'
+        }
+      },
+      {
         test: /\.(woff|woff2|eot|ttf|otf|svg)$/i,
         include: /fonts/,
         type: 'asset/resource',
