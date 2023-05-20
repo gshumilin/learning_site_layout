@@ -10,9 +10,9 @@ module.exports = {
   },
 
   entry: {
-    index: './pages/index/index.pug',
-    colors_and_types: './pages/colors-and-types/colors-and-types.pug',
-    form_elements: './pages/form-elements/form-elements.pug',
+    'index': './pages/index/index.pug',
+    'colors-and-types': './pages/colors-and-types/colors-and-types.pug',
+    'form-elements': './pages/form-elements/form-elements.pug',
   },
 
   devServer: {
