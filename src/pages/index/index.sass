@@ -1,0 +1,27 @@
+@use '../../components/styles_normalizing'
+@use '../../components/cards'
+
+.index-scaffold
+  width: 100vw
+  height: 100vh
+  background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%)
+  display: flex
+  justify-content: center
+  align-content: center
+  flex-wrap: wrap
+
+.pages-list
+  display: flex
+  justify-content: center
+  flex-direction: column
+  text-align: center
+
+  .pages-list__item
+    a:link 
+      font-size: 2rem
+      color: #6689fc
+      text-decoration: none
+    a:hover
+      color: #3750a3
+    a:visited
+      color: #9ab0f7
