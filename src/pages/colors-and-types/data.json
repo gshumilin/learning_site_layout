@@ -1,0 +1,39 @@
+{
+  "colors": [
+    {
+      "colorVariableName": "dark-shade-100",
+      "title": "Dark Shade 100%",
+      "hex": "#1F2041"
+    },
+    {
+      "colorVariableName": "dark-shade-75",
+      "title": "Dark Shade 75%",
+      "hex": "#1F2041"
+    },
+    {
+      "colorVariableName": "dark-shade-50",
+      "title": "Dark Shade 50%",
+      "hex": "#1F2041"
+    },
+    {
+      "colorVariableName": "dark-shade-25",
+      "title": "Dark Shade 25%",
+      "hex": "#1F2041"
+    },
+    {
+      "colorVariableName": "dark-shade-5",
+      "title": "Dark Shade 5%",
+      "hex": "#1F2041"
+    },
+    {
+      "colorVariableName": "green",
+      "title": "Green",
+      "hex": "#6FCF97"
+    },
+    {
+      "colorVariableName": "purple",
+      "title": "Purple",
+      "hex": "#BC9CFF"
+    }
+  ]
+}
