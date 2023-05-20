@@ -21,15 +21,11 @@ module.exports = {
     },
     compress: true,
     watchFiles: {
-      paths: ['src/**/*.*'],
+      paths: ['src/**/*.*', 'assets/**/*.*'],
       options: {
         usePolling: true,
       },
     },
-  },
-
-  resolve: {
-    extensions: ['.js', '.ts', '.pug', '.css']
   },
 
   plugins: [
@@ -62,7 +58,21 @@ module.exports = {
         test: /\.pug$/,
         loader: PugPlugin.loader
       },
-
+      {
+        test: /\.(png|jpg|jpeg|ico)/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/img/[name].[hash:8][ext]'
+        }
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf|svg)$/i,
+        include: /fonts/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/fonts/[name][ext][query]'
+        }
+      },
     ]
   }
 
