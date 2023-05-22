@@ -18,21 +18,16 @@ block body
               .colors__description
                 h2.colors__name= item.title
                 p.colors__hex= item.hex
+
+      mixin typesRepresentator(typesDataList)
+        ul.types 
+          each item in typesDataList
+            li.types__item
+              #{item.type}.types__name= item.title
+              #{item.type}.types__description= item.description
+
       header
         .logo
       .content
         +colorsRepresentator(data.colors)
-
-        ul.types
-          li.types__item
-            h1.types__name H1
-            h1.types__description This one is the sub-section or widget title
-          li.types__item
-            h2.types__name H2
-            h2.types__description Next one is the item title inside widgets
-          li.types__item
-            h3.types__name H3
-            h3.types__description This is a label or CTA text
-          li.types__item.types__item_last
-            p.types__name Body
-            p.types__description This is the body text which is used for most of the design, like paragraphs, lists, etc.
+        +typesRepresentator(data.types)
