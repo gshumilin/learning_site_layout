@@ -26,14 +26,14 @@
       "hex": "#1F2041"
     },
     {
-      "colorVariableName": "green",
-      "title": "Green",
-      "hex": "#6FCF97"
-    },
-    {
       "colorVariableName": "purple",
       "title": "Purple",
       "hex": "#BC9CFF"
+    },
+    {
+      "colorVariableName": "green",
+      "title": "Green",
+      "hex": "#6FCF97"
     }
   ],
   "types": [

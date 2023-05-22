@@ -10,24 +10,21 @@ block body
     body 
       - const data = require('./data.json')
 
-      mixin colorsRepresentator(colorsDataList)
-        ul.colors
-          each item in colorsDataList
-            li.color-info
-              div(class= `colors__example colors__example_${item.colorVariableName}`)
-              .colors__description
-                h2.colors__name= item.title
-                p.colors__hex= item.hex
-
-      mixin typesRepresentator(typesDataList)
-        ul.types 
-          each item in typesDataList
-            li.types__item
-              #{item.type}.types__name= item.title
-              #{item.type}.types__description= item.description
-
       header
         .logo
-      .content
-        +colorsRepresentator(data.colors)
-        +typesRepresentator(data.types)
+        
+      .container
+        .content
+          ul.colors
+            each item in data.colors
+              li.color-info
+                div(class= `colors__example colors__example_${item.colorVariableName}`)
+                .colors__description
+                  h2.colors__name= item.title
+                  p.colors__hex= item.hex
+
+          ul.types 
+            each item in data.types
+              li.types__item
+                #{item.type}.types__name= item.title
+                #{item.type}.types__description= item.description
