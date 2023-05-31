@@ -1,10 +1,30 @@
-doctype html
-html(lang="en")
-  head
-    meta(charset="UTF-8")
-    meta(http-equiv="X-UA-Compatible", content="IE=edge")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title Colors and types
-    link(rel="stylesheet", href=require("colors-and-types.sass"))
-  body 
-    h1 Colors and types page!
+block body
+  doctype html
+  html(lang="en")
+    head
+      meta(charset="UTF-8")
+      meta(http-equiv="X-UA-Compatible" content="IE=edge")
+      meta(name="viewport" content="width=device-width, initial-scale=1.0")
+      title Colors and types
+      link(rel="stylesheet", href=require("colors-and-types.sass"))
+    body 
+      - const data = require('./data.json')
+
+      header
+        .logo
+        
+      .container
+        .content
+          ul.colors
+            each item in data.colors
+              li.color-info
+                div(class= `colors__example colors__example_${item.colorVariableName}`)
+                .colors__description
+                  h2.colors__name= item.title
+                  p.colors__hex= item.hex
+
+          ul.types 
+            each item in data.types
+              li.types__item
+                #{item.type}.types__name= item.title
+                #{item.type}.types__description= item.description
