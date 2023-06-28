@@ -4,10 +4,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="form-elements.7b32d397.css">
+    <link rel="stylesheet" href="form-elements.3dc8d998.css">
     <title>form_elements</title>
   </head>
   <body>
-    <h2>form elements page:)</h2>
+    <header>
+      <div class="logo"></div>
+    </header>
+    <div class="container">
+      <div class="content">
+        <div class="input-element">
+          <div class="input-element__info">
+            <h3 class="input-element__title">text field</h3>
+            <h3 class="input-element__subtitle">default</h3>
+          </div><input class="input-element__field" type="text" placeholder="Email">
+        </div>
+        <div class="input-element">
+          <div class="input-element__info">
+            <h3 class="input-element__title">text field</h3>
+            <h3 class="input-element__subtitle">hover / focus</h3>
+          </div><input class="input-element__field" type="text" value="This is pretty awesome">
+        </div>
+        <div class="input-element">
+          <div class="input-element__info">
+            <h3 class="input-element__title">dropdown</h3>
+            <h3 class="input-element__subtitle"></h3>
+          </div>
+          <div class="dropdown"><input class="dropdown__button input-element__field" type="text"
+              placeholder="Сколько гостей" readonly>
+            <div class="dropdown__content">
+              <div class="dropdown__item">
+                <h3 class="dropdown__title">sssss</h3>
+                <div class="counter"><button class="counter__decrement" disabled>-</button><input class="counter__value"
+                    type="text" name="bedrooms" value="0" readonly><button class="counter__increment">+</button></div>
+              </div>
+              <div class="dropdown__item">
+                <h3 class="dropdown__title">ванные</h3>
+                <div class="counter"><button class="counter__decrement" disabled>-</button><input class="counter__value"
+                    type="text" name="bathrooms" value="0" readonly><button class="counter__increment">+</button></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
+  <script src="assets/js/form-elements.1.d7d66b41.js"> </script>
 </html>

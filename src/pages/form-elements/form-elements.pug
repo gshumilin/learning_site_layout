@@ -6,5 +6,77 @@ html(lang="ru")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     link(rel="stylesheet", href=require("form-elements.sass"))
     title form_elements
+
+  include ../../components/form-elements/form-elements.pug
   body 
-    h2 form elements page:)
+    include ../../components/header/header.pug
+
+    mixin counter(entity_name)
+      .counter
+        button(disabled).counter__decrement -
+        input(type="text", name=entity_name, value="0", readonly).counter__value
+        button().counter__increment +
+
+    mixin input-element__info (vars = {})
+      - 
+        const {
+          title,
+          subtitle,
+        } = vars
+
+      .input-element__info 
+        h3.input-element__title= title
+        h3.input-element__subtitle= subtitle
+
+
+
+    mixin input-element_text (vars = {})
+      - 
+        const {
+          title,
+          subtitle,
+          placeholder,
+          value,
+          icon,
+        } = vars
+
+      .input-element
+        +input-element__info({title: title, subtitle:subtitle})
+        input(type="text", placeholder=placeholder, value=value).input-element__field
+
+
+
+    mixin input-element_dropdown (vars = {})
+      - 
+        const {
+          title,
+          subtitle,
+          placeholder,
+          value,
+          icon,
+          dropdown_content,
+        } = vars
+
+      .input-element
+        +input-element__info({title: title, subtitle:subtitle})
+        .dropdown
+          input(type="text", placeholder=placeholder, readonly).dropdown__button.input-element__field
+          .dropdown__content
+            each item in dropdown_content
+              .dropdown__item 
+                h3.dropdown__title= item.title
+                +counter(item.name)
+
+
+
+        
+    .container
+      .content
+        +input-element_text({title: "text field", subtitle: "default", placeholder: "Email"})
+        +input-element_text({title: "text field", subtitle: "hover / focus", value: "This is pretty awesome"})
+        +input-element_dropdown({title: "dropdown", placeholder:"Сколько гостей", dropdown_content: [{name:"bedrooms", title:"sssss"}, {name:"bathrooms", title:"ванные"}]})
+
+  script(src=require("form-elements.js")) 
+
+
+
